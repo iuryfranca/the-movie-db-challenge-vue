@@ -1,46 +1,45 @@
-# the-movie-db-challenge-vue
+<p align="center">
+  <strong>The Movie DB Challenge Vue3 + Typescript</strong>
+</p>
 
-This template should help get you started developing with Vue 3 in Vite.
+<p align="center">
+  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
+  <a href="#rocket-techs">Dependencies</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-getting-started">Getting Started</a> &#xa0; &#xa0;
+</p>
 
-## Recommended IDE Setup
+<br>
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## :dart: About
 
-## Type Support for `.vue` Imports in TS
+This is a copy of this other project: https://github.com/iuryfranca/the-movie-db-challenge-next-13, I challenged myself to rebuild it in another tech: Vuejs. The project itself consists of (almost) recreating the website www.themoviedb.org.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## :rocket: Techs
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+The following technologies were used in the project:
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- [@vue3](https://vuejs.org/)
+- [@tailwindcss](https://tailwindcss.com/)
+- [@radix-ui](https://www.radix-ui.com/)
+- [@lucide-icons](https://lucide.dev/)
 
-## Customize configuration
+## :white_check_mark: Requirements
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- [Node](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/lang/en/)
 
-## Project Setup
+## :checkered_flag: Getting Started
 
-```sh
-npm install
-```
+```bash
+# Clone this project
+$ git clone https://github.com/iuryfranca/the-movie-db-challenge-next-13.git
 
-### Compile and Hot-Reload for Development
+# Install dependencies
+$ yarn install
 
-```sh
-npm run dev
-```
+# Run the project
+$ yarn dev
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+# The server will initialize in the <http://localhost:3000>
 ```
