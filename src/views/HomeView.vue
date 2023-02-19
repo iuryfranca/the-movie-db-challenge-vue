@@ -1,15 +1,34 @@
 <template>
-  <div class="about">
-    <h1>HOME</h1>
-  </div>
+  <section className="grid items-center gap-6 pt-6 pb-8 md:py-10">
+    <div className="flex max-w-[980px] flex-col items-start gap-2">
+      <h1
+        className="text-3xl font-extrabold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]"
+      >
+        Projeto criado para testar <br className="hidden sm:inline" />
+        minhas habilidades Front-End
+      </h1>
+      <span
+        className="max-w-[700px] text-lg text-slate-700 dark:text-slate-400 sm:text-xl"
+      >
+        O desafio consiste em consultar a
+        <a
+          href="https://www.themoviedb.org/documentation/api"
+          target="_blank"
+          rel="noreferrer"
+          className="font-semibold underline underline-offset-4"
+        >
+          themoviedb API
+        </a>
+        <br className="hidden sm:inline" />
+        e criar uma aplicação focada em desempenho e acessibilidade.
+      </span>
+    </div>
+  </section>
+  <section>
+    <TechsList />
+  </section>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<script setup lang="ts">
+import TechsList from '@/components/TechsList.vue'
+</script>
