@@ -5,12 +5,13 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,vue}'],
+  darkMode: ['class'],
   theme: {
     container: {
       center: true,
       padding: '2.5rem',
       screens: {
-        '2xl': 'max-content',
+        '2xl': '1440px',
       },
     },
     screens: {

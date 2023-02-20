@@ -9,34 +9,16 @@
       :key="key"
       :href="`/movies/${item.id}`"
     >
-      <!-- <CardMovie
-        :id="item.id"
-        :overview="item.overview"
-        :poster_path="item.poster_path"
-        :release_date="item.release_date"
-        :title="item.title"
-        :vote_average="item.vote_average"
-      /> -->
-
       <CardMovie :card-movie="item" />
     </a>
   </div>
 
   <div class="flex items-center justify-center">
-    <button
-      v-if="loadingData"
-      class="mt-8 border-2 border-slate-900 dark:border-slate-300"
-    >
-      <!-- <Loader2 class="mr-2 h-4 w-4 animate-spin" /> -->
-      Carregar mais filmes
-    </button>
-    <button
-      v-else
+    <ButtonUi
+      :msg="'Carregar mais filmes'"
       variant="outline"
-      class="mt-8 border-2 border-slate-900 dark:border-slate-300"
-    >
-      Carregar mais filmes
-    </button>
+      class="mt-8 border-2"
+    />
   </div>
 </template>
 
@@ -45,12 +27,13 @@ import { defineComponent } from 'vue'
 import { api } from '@/lib/axios'
 import type { MoviesProps } from '@/types/movies'
 import CardMovie from '@/components/CardMovie.vue'
+import ButtonUi from '@/components/ui/ButtonUi.vue'
 
-// const apiKey = import.meta.env.VITE_PUBLIC_API_KEY_V3
+const apiKey = import.meta.env.VITE_PUBLIC_API_KEY_V3
 
 export default defineComponent({
   name: 'ListItemsPages',
-  components: { CardMovie },
+  components: { CardMovie, ButtonUi },
   data() {
     return {
       loadingData: true,
@@ -71,9 +54,7 @@ export default defineComponent({
       this.loadingData = true
 
       api
-        .get(
-          `/movie/popular?api_key=2b714e82ab5108ff8b963154afd167ea&language=pt-BR${pageNumberUrl}`
-        )
+        .get(`/movie/popular?${apiKey}${pageNumberUrl}`)
         .then((res) => {
           this.moviesList =
             typeGet === 'discover'
