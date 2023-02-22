@@ -13,7 +13,7 @@
 
 ## :dart: About
 
-This is a copy of this other project: https://github.com/iuryfranca/the-movie-db-challenge-next-13, I challenged myself to rebuild it in another tech: Vuejs. The project itself consists of (almost) recreating the website www.themoviedb.org.
+This is a copy of this other project: [https://github.com/iuryfranca/the-movie-db-challenge-next-13](https://github.com/iuryfranca/the-movie-db-challenge-vue/), I challenged myself to rebuild it in another tech: Vuejs. The project itself consists of (almost) recreating the website www.themoviedb.org.
 
 ## :rocket: Techs
 
@@ -21,8 +21,9 @@ The following technologies were used in the project:
 
 - [@vue3](https://vuejs.org/)
 - [@tailwindcss](https://tailwindcss.com/)
-- [@radix-ui](https://www.radix-ui.com/)
+- [@vuex](https://github.com/vuejs/vuex)
 - [@lucide-icons](https://lucide.dev/)
+- [@firebase](https://firebase.google.com/)
 
 ## :white_check_mark: Requirements
 
