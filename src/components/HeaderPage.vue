@@ -134,9 +134,12 @@ const isDark = useDark()
 const toggleDark = useToggle(isDark)
 const store = useStore()
 
-const points = computed(() => {
-  return store.state.points
-})
+// TESTE STORE
+const points = computed(() => store.state.points)
+const updatePoints = (points: number) => store.commit('updatePoints', points)
 
 console.log('points', points.value)
+updatePoints(10)
+console.log('points', points.value)
+// FIM TESTE
 </script>
