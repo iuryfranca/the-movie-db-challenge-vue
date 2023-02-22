@@ -17,10 +17,10 @@
           class="hidden h-10 w-[520px] items-center justify-end space-x-2 overflow-hidden rounded-lg border border-slate-100 bg-slate-200 pr-2 pl-6 dark:border-slate-700 dark:bg-zinc-900 lg:flex"
         >
             <code class='font-mono text-sm font-semibold text-slate-900 dark:text-slate-50'>
-              https://github.com/iuryfranca/the-movie-db-challenge-next-13
+              https://github.com/iuryfranca/the-movie-db-challenge-vue
             </code>
             <a
-              href='https://github.com/iuryfranca/the-movie-db-challenge-next-13'
+              href='https://github.com/iuryfranca/the-movie-db-challenge-vue'
               target='_blank'
               rel='no-referrer'
               aria-label='Acessar perfil github'
