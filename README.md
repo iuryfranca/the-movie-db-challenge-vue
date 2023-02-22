@@ -21,8 +21,9 @@ The following technologies were used in the project:
 
 - [@vue3](https://vuejs.org/)
 - [@tailwindcss](https://tailwindcss.com/)
-- [@radix-ui](https://www.radix-ui.com/)
+- [@vuex](https://github.com/vuejs/vuex)
 - [@lucide-icons](https://lucide.dev/)
+- [@firebase](https://firebase.google.com/)
 
 ## :white_check_mark: Requirements
 
