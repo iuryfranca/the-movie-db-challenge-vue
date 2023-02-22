@@ -1,6 +1,7 @@
 <template>
+  <HeaderPage :is-presentation="false" />
   <div
-    class="flex h-full min-h-[90vh] w-full flex-col items-center justify-center gap-8 sm:flex-row"
+    class="container flex h-full min-h-[90vh] w-full flex-col items-center justify-center gap-8 sm:flex-row"
   >
     <div
       class="flex min-h-min max-w-[800px] flex-col items-start gap-2 sm:min-h-[220px]"
@@ -67,6 +68,7 @@
 </template>
 
 <script>
+import HeaderPage from '@/components/HeaderPage.vue'
 import ButtonUi from '@/components/ui/ButtonUi.vue'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -94,6 +96,6 @@ export default {
     }
     return { handleSubmit, email, password, error }
   },
-  components: { ButtonUi },
+  components: { ButtonUi, HeaderPage },
 }
 </script>

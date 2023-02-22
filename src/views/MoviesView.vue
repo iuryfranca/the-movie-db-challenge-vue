@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <HeaderPage :is-presentation="false" />
+
+  <div class="container">
     <p
       class="pt-3 pb-3 text-2xl font-extrabold leading-tight tracking-tighter md:py-5 md:text-3xl lg:text-4xl lg:leading-[1.1]"
     >
@@ -22,10 +24,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import ListItemsPage from '@/components/ListItemsPage.vue'
+import HeaderPage from '@/components/HeaderPage.vue'
 
 export default defineComponent({
   name: 'MoviesView',
-  components: { ListItemsPage },
+  components: { ListItemsPage, HeaderPage },
   setup() {
     return {
       name: 'iury',

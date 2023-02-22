@@ -1,6 +1,8 @@
 <template>
+  <HeaderPage :is-presentation="false" />
+
   <div
-    class="flex h-full min-h-[90vh] w-full flex-col items-center justify-center gap-8 sm:flex-row"
+    class="container flex h-full min-h-[90vh] w-full flex-col items-center justify-center gap-8 sm:flex-row"
   >
     <div
       class="flex min-h-min max-w-[800px] flex-col items-start gap-2 sm:min-h-[300px]"
@@ -86,9 +88,10 @@ import { ref } from 'vue'
 import ButtonUi from '@/components/ui/ButtonUi.vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+import HeaderPage from '@/components/HeaderPage.vue'
 
 export default {
-  components: { ButtonUi },
+  components: { ButtonUi, HeaderPage },
   setup() {
     const email = ref('')
     const password = ref('')

@@ -5,8 +5,11 @@
     <div
       class="container flex h-16 items-center sm:justify-between sm:space-x-0"
     >
-      <a href="/movies">
+      <a v-if="props.isPresentation" href="/movies">
         <ButtonUi :msg="'Vamos lá!'" />
+      </a>
+      <a v-else href="/">
+        <Home />
       </a>
       <!-- <MainNav /> -->
       <div class="flex flex-1 items-center justify-end gap-2">
@@ -121,17 +124,26 @@ import {
   Sun,
   Moon,
   ExternalLink,
+  Home,
 } from 'lucide-vue-next'
 import { siteConfig } from '@/config/site'
 import { useStore } from 'vuex'
+import { defineProps } from 'vue'
+import { useRouter } from 'vue-router'
 
 import ButtonUi from '@/components/ui/ButtonUi.vue'
-import { useRouter } from 'vue-router'
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 const store = useStore()
 const router = useRouter()
+
+const props = defineProps({
+  isPresentation: {
+    type: Boolean,
+    required: true,
+  },
+})
 
 const handleLogout = () => {
   store.dispatch('logout')

@@ -1,4 +1,6 @@
 <template>
+  <HeaderPage :is-presentation="true" />
+
   <div class="container">
     <section class="grid items-center gap-6 pt-6 pb-8 md:py-10">
       <div class="flex max-w-[980px] flex-col items-start gap-2">
@@ -32,5 +34,6 @@
 </template>
 
 <script setup lang="ts">
+import HeaderPage from '@/components/HeaderPage.vue'
 import TechsList from '@/components/TechsList.vue'
 </script>
