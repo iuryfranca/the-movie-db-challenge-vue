@@ -4,6 +4,7 @@
   >
     <form
       className="p-5 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
+      @submit.prevent="handleSubmit"
     >
       <p className="mb-5 text-[15px] leading-normal">
         Make changes to your account here. Click save when you're done.
@@ -14,8 +15,10 @@
         </label>
         <input
           className="rounded px-2.5 text-[15px] leading-none shadow-[0_0_0_1px] h-[35px] focus:shadow-[0_0_0_2px] outline-none text-slate-900"
-          id="name"
-          placeholder="Pedro Duarte"
+          id="email"
+          v-model="email"
+          type="email"
+          placeholder="exemplo@gmail.com"
         />
       </fieldset>
       <fieldset className="mb-[15px] w-full flex flex-col justify-start">
@@ -27,8 +30,10 @@
         </label>
         <input
           className="rounded px-2.5 text-[15px] leading-none shadow-[0_0_0_1px] h-[35px] focus:shadow-[0_0_0_2px] outline-none text-slate-900"
-          id="username"
-          placeholder="@peduarte"
+          id="password"
+          v-model="password"
+          type="password"
+          placeholder="***********"
         />
       </fieldset>
       <div className="flex justify-end mt-5">
