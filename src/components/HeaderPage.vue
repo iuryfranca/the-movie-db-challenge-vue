@@ -97,11 +97,12 @@
                   >
                     Login
                   </a>
-                  <a
+                  <button
                     class="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm font-medium outline-none hover:bg-slate-100 focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
+                    @click="handleLogout()"
                   >
                     Logout
-                  </a>
+                  </button>
                 </ul>
               </div>
             </div>
@@ -125,21 +126,18 @@ import {
   ExternalLink,
 } from 'lucide-vue-next'
 import { siteConfig } from '@/config/site'
-import { computed } from 'vue'
 import { useStore } from 'vuex'
 
 import ButtonUi from '@/components/ui/ButtonUi.vue'
+import { useRouter } from 'vue-router'
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 const store = useStore()
+const router = useRouter()
 
-// TESTE STORE
-const points = computed(() => store.state.points)
-const updatePoints = (points: number) => store.commit('updatePoints', points)
-
-console.log('points', points.value)
-updatePoints(10)
-console.log('points', points.value)
-// FIM TESTE
+const handleLogout = () => {
+  store.dispatch('logout')
+  router.push('/')
+}
 </script>
