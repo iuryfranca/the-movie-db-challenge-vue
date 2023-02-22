@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from 'firebase/auth'
 
 const store = createStore({
@@ -19,15 +20,21 @@ const store = createStore({
     },
   },
   actions: {
-    async signup(context, { email, password }) {
+    async signup(context, { email, password, displayName }) {
       console.log('signup atualizado')
 
-      const res = await createUserWithEmailAndPassword(auth, email, password)
-      if (res) {
-        context.commit('setUser', res.user)
-      } else {
-        throw new Error('Algo deu errado na hora de criar sua conta :(')
-      }
+      await createUserWithEmailAndPassword(auth, email, password).then(
+        (res) => {
+          if (res) {
+            context.commit('setUser', res.user)
+            updateProfile(res.user, {
+              displayName: displayName,
+            })
+          } else {
+            throw new Error('Algo deu errado na hora de criar sua conta :(')
+          }
+        }
+      )
     },
     async login(context, { email, password }) {
       console.log('Login realizado')

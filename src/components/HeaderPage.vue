@@ -6,15 +6,6 @@
       class="container flex h-16 items-center sm:justify-between sm:space-x-0"
     >
       <a href="/movies">
-        <!-- <button class="rounded-lg border-2 border-blue-900 p-1">
-          <span class="flex text-xs font-semibold sm:hidden sm:text-sm">
-            Vamos lá!
-          </span>
-          <span class="hidden text-xs font-semibold sm:flex sm:text-sm">
-            Conheça essa aplicação!
-          </span>
-          <LogIn class="ml-2 h-4 w-4" />
-        </button> -->
         <ButtonUi :msg="'Conheça essa aplicação!'" />
       </a>
       <!-- <MainNav /> -->
@@ -38,7 +29,7 @@
             </a>
           </pre>
 
-        <nav class="flex items-center gap-3 space-x-1 px-2">
+        <nav class="flex items-center gap-3 space-x-1 px-6">
           <a :href="siteConfig.links.github" target="_blank" rel="noreferrer">
             <button>
               <Github
@@ -80,7 +71,7 @@
           <!-- Botão para Login/register -->
           <div class="relative">
             <button
-              class="peer flex cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm font-medium text-slate-700 outline-none transition-all duration-200 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+              class="rounded-s peer flex cursor-default select-none items-center text-sm font-medium text-slate-700 outline-none transition-all duration-200 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
             >
               <LogIn />
             </button>
@@ -96,6 +87,12 @@
                     href="/login"
                   >
                     Login
+                  </a>
+                  <a
+                    class="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm font-medium outline-none hover:bg-slate-100 focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
+                    href="/register"
+                  >
+                    Registro
                   </a>
                   <button
                     class="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm font-medium outline-none hover:bg-slate-100 focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
