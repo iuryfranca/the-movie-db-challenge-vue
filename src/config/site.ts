@@ -45,14 +45,6 @@ export const siteTechs: siteTechs[] = [
     image: 'https://github.com/tailwindcss.png',
   },
   {
-    name: '@radix-ui',
-    description:
-      // 'Unstyled, accessible components for building high‑quality design systems and web apps in React.',
-      'Componentes acessíveis e sem estilo para criar sistemas de design, aplicativos da web e tudo com alta qualidade usado React.',
-    link: 'https://www.radix-ui.com/',
-    image: 'https://github.com/radix-ui.png',
-  },
-  {
     name: '@lucide-icons',
     // description: 'Open-source project and a fork of Feather Icons.',
     description: 'Projeto open source aberto e uma variação do Feather Icons.',
