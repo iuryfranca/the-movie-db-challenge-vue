@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex h-full min-h-[90vh] w-full flex-col items-center justify-center gap-5 sm:flex-row"
+    class="flex h-full min-h-[90vh] w-full flex-col items-center justify-center gap-8 sm:flex-row"
   >
     <div
-      class="flex min-h-min max-w-[900px] flex-col items-start gap-2 sm:min-h-[300px]"
+      class="flex min-h-min max-w-[800px] flex-col items-start gap-2 sm:min-h-[300px]"
     >
       <h1
         class="text-3xl font-extrabold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]"

@@ -14,16 +14,16 @@
     <div
       class="relative h-36 w-full flex-col items-center justify-between gap-2 rounded-b-md rounded-r-md rounded-l-none bg-slate-900 p-2 pt-2 dark:bg-white sm:h-24 sm:rounded-t-none sm:rounded-b-md sm:pt-4"
     >
-      <div class="flex h-full w-full flex-col gap-1 sm:justify-between">
-        <p class="whitespace-wrap line-clamp-2 text-ellipsis text-sm font-bold">
+      <div class="mb-3 flex w-full flex-col gap-1 sm:justify-between">
+        <p class="whitespace-wrap text-ellipsis text-sm font-bold line-clamp-2">
           {{ cardMovie?.title }}
         </p>
         <p class="text-xs text-slate-300 dark:text-slate-600">
           {{ releaseDateFormatted }}
         </p>
       </div>
-      <div class="flex h-24 w-full justify-start rounded-sm pb-2 sm:hidden">
-        <span class="whitespace-wrap line-clamp-2 text-ellipsis text-sm">
+      <div class="flex w-full justify-start rounded-sm pb-2 sm:hidden">
+        <span class="whitespace-wrap text-ellipsis text-sm line-clamp-2">
           {{ cardMovie?.overview || 'Sem descrição.' }}
         </span>
       </div>

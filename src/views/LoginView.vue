@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex h-full min-h-[90vh] w-full flex-col items-center justify-center gap-5 sm:flex-row"
+    class="flex h-full min-h-[90vh] w-full flex-col items-center justify-center gap-8 sm:flex-row"
   >
     <div
-      class="flex min-h-min max-w-[900px] flex-col items-start gap-2 sm:min-h-[300px]"
+      class="flex min-h-min max-w-[800px] flex-col items-start gap-2 sm:min-h-[220px]"
     >
       <h1
         class="text-3xl font-extrabold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]"
@@ -25,9 +25,6 @@
         className="p-5 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
         @submit.prevent="handleSubmit"
       >
-        <p className="mb-5 text-[15px] leading-normal">
-          Faça seu login em nossa aplicação :)
-        </p>
         <fieldset className="mb-[15px] w-full flex flex-col justify-start">
           <label
             className="text-[13px] leading-none mb-2.5 block"

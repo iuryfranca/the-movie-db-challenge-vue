@@ -6,7 +6,7 @@
       class="container flex h-16 items-center sm:justify-between sm:space-x-0"
     >
       <a href="/movies">
-        <ButtonUi :msg="'Conheça essa aplicação!'" />
+        <ButtonUi :msg="'Vamos lá!'" />
       </a>
       <!-- <MainNav /> -->
       <div class="flex flex-1 items-center justify-end gap-2">

@@ -59,4 +59,19 @@ export const siteTechs: siteTechs[] = [
     link: 'https://lucide.dev/',
     image: 'https://github.com/lucide-icons.png',
   },
+  {
+    name: '@vuex',
+    // description: 'Open-source project and a fork of Feather Icons.',
+    description: 'Responsável pelo gerenciamento de estado feito no vuejs',
+    link: 'https://github.com/vuejs/vuex',
+    image: 'https://github.com/vuejs.png',
+  },
+  {
+    name: '@firebase',
+    // description: 'Open-source project and a fork of Feather Icons.',
+    description:
+      'Conjunto de serviços que oferece NoSQL e hospedagem em tempo real de bancos de dados, conteúdo, autenticação social e notificações ou serviços.',
+    link: 'https://firebase.google.com/',
+    image: 'https://github.com/firebase.png',
+  },
 ]
