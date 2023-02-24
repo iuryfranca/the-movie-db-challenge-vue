@@ -5,7 +5,7 @@
     techs utilizadas
   </span>
   <div
-    class="grid max-w-[980px] grid-cols-1 items-center justify-items-center gap-8 xs:justify-items-start sm:grid-cols-2"
+    class="grid max-w-[980px] grid-cols-1 items-center justify-items-center gap-8 pt-5 xs:justify-items-start sm:grid-cols-2"
   >
     <div v-for="(tech, index) in siteTechs" :key="index">
       <a
