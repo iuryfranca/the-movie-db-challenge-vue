@@ -87,13 +87,13 @@
                 >
                   <a
                     class="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm font-medium outline-none hover:bg-slate-100 focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
-                    href="/login"
+                    @click="router.push('/login')"
                   >
                     Login
                   </a>
                   <a
                     class="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm font-medium outline-none hover:bg-slate-100 focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
-                    href="/register"
+                    @click="router.push('/register')"
                   >
                     Registro
                   </a>
