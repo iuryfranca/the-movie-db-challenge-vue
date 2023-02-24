@@ -32,47 +32,59 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { api } from '@/lib/axios'
-import type { MoviesProps } from '@/types/movies'
 import CardMovie from '@/components/CardMovie.vue'
 import ButtonUi from '@/components/ui/ButtonUi.vue'
-
-const apiKey = import.meta.env.VITE_PUBLIC_API_KEY_V3
+import { mapGetters, useStore } from 'vuex'
+import store from '@/store'
 
 export default defineComponent({
   name: 'ListItemsPages',
   components: { CardMovie, ButtonUi },
   data() {
     return {
-      loadingData: true,
-      moviesList: [] as MoviesProps[],
       numberPage: 1,
+      typeGet: 'popular',
     }
   },
 
-  mounted() {
-    this.getMovies()
+  setup() {
+    const store = useStore()
+
+    return {
+      store,
+    }
+  },
+
+  async mounted() {
+    this.store.dispatch('getListMovies', {
+      typeGet: this.typeGet,
+      numberPageApi: this.numberPage,
+    })
+  },
+
+  computed: {
+    ...mapGetters({
+      moviesList: 'moviesList',
+      loadingData: 'loadingData',
+    }),
   },
 
   methods: {
-    async getMovies(typeGet: string = 'popular', numberPageApi: number = 1) {
-      const pageNumberUrl = `&page=${numberPageApi}`
-
-      this.numberPage = numberPageApi
-      this.loadingData = true
-
-      api
-        .get(`/movie/popular?${apiKey}${pageNumberUrl}`)
-        .then((res) => {
-          this.moviesList =
-            typeGet === 'discover'
-              ? [...res.data.results]
-              : [...this.moviesList, ...res.data.results]
-        })
-        .catch(() => new Error('Failed to fetch data'))
-
-      this.loadingData = false
-    },
+    //   async getMovies(typeGet: string = 'popular', numberPageApi: number = 1) {
+    //     const pageNumberUrl = `&page=${numberPageApi}`
+    //     this.numberPage = numberPageApi
+    //     this.loadingData = true
+    //     api
+    //       .get(`/movie/popular?${apiKey}${pageNumberUrl}`)
+    //       .then((res) => {
+    //         this.moviesList =
+    //           typeGet === 'discover'
+    //             ? [...res.data.results]
+    //             : [...this.moviesList, ...res.data.results]
+    //       })
+    //       .catch(() => new Error('Failed to fetch data'))
+    //     this.loadingData = false
+    //   },
   },
 })
 </script>
