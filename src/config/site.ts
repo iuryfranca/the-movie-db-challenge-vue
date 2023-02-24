@@ -30,13 +30,6 @@ export const siteConfig: SiteConfig = {
 
 export const siteTechs: siteTechs[] = [
   {
-    name: '@nextjs',
-    // description: 'The React Framework – created and maintained by @vercel.',
-    description: 'O React Framework – criado e mantido por @vercel.',
-    link: 'https://nextjs.org/',
-    image: 'https://github.com/vercel.png',
-  },
-  {
     name: '@tailwindcss',
     description:
       // 'A utility-first CSS framework packed with classes like flex, pt-4 and text-center that can be composed to build any design.',
