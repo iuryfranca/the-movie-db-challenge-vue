@@ -6,3 +6,8 @@ export interface MoviesProps {
   vote_average?: number
   overview?: string
 }
+
+export interface GenreProps {
+  id: number
+  name: string
+}

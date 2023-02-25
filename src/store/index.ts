@@ -9,17 +9,23 @@ import {
   updateProfile,
 } from 'firebase/auth'
 import { api } from '@/lib/axios'
-import type { MoviesProps } from '@/types/movies'
+import type { MoviesProps, GenreProps } from '@/types/movies'
+
+const apiKey = import.meta.env.VITE_PUBLIC_API_KEY_V3
 
 const store = createStore({
   state: {
     user: null,
     moviesList: [] as MoviesProps[],
+    genres: [] as GenreProps[],
     loadingData: true,
   },
   getters: {
     moviesList(state) {
       return state.moviesList
+    },
+    genres(state) {
+      return state.genres
     },
     loadingData(state) {
       return state.loadingData
@@ -31,6 +37,9 @@ const store = createStore({
     },
     setMoviesList(state, payload) {
       state.moviesList = payload
+    },
+    setGenres(state, payload) {
+      state.genres = payload
     },
   },
   actions: {
@@ -62,7 +71,6 @@ const store = createStore({
     },
     async getListMovies(context, { typeGet, numberPageApi }) {
       const pageNumberUrl = `&page=${numberPageApi}`
-      const apiKey = import.meta.env.VITE_PUBLIC_API_KEY_V3
 
       this.state.loadingData = true
 
@@ -79,6 +87,11 @@ const store = createStore({
         .catch(() => new Error('Failed to fetch data'))
 
       this.state.loadingData = false
+    },
+    async getGenresMovies(context) {
+      await api.get(`/genre/movie/list?${apiKey}`).then((res) => {
+        context.commit('setGenres', res.data.genres)
+      })
     },
   },
 })

@@ -11,8 +11,7 @@
       class="flex flex-col items-start gap-6 md:grid md:grid-cols-[250px_1fr]"
     >
       <section class="grid w-full items-center gap-6 pt-6 md:py-5">
-        <!-- <FilterPage /> -->
-        Filter
+        <FilterPage />
       </section>
       <section class="flex w-full flex-col pt-6 pb-8 md:py-5">
         <ListItemsPage />
@@ -25,10 +24,11 @@
 import { defineComponent } from 'vue'
 import ListItemsPage from '@/components/ListItemsPage.vue'
 import HeaderPage from '@/components/HeaderPage.vue'
+import FilterPage from '@/components/FilterPage.vue'
 
 export default defineComponent({
   name: 'MoviesView',
-  components: { ListItemsPage, HeaderPage },
+  components: { ListItemsPage, HeaderPage, FilterPage },
   setup() {
     return {
       name: 'iury',
