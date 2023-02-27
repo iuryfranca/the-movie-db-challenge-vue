@@ -38,13 +38,6 @@
       </Collapse>
     </div>
     <div class="border-b border-b-slate-200 dark:border-b-slate-700">
-      <!-- <ButtonUi
-        msg="Gêneros"
-        @click="handleCollapse"
-        variant="subtle"
-        class="flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180"
-      /> -->
-
       <button
         class="flex w-full flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180"
         @click="handleCollapse"
@@ -63,10 +56,8 @@
             <button
               v-for="genre in genres"
               :key="genre.id"
-              :class="[
-                colorButtonFilters,
-                'h-9 rounded-md border border-slate-200 bg-transparent px-2 hover:bg-slate-700 dark:border-slate-700 dark:text-slate-100',
-              ]"
+              class="h-9 rounded-md border border-slate-200 px-2 hover:bg-slate-700 dark:border-slate-700 dark:text-slate-100"
+              :class="genreSelected.some((genreId: number) => genreId === genre.id) ? 'bg-slate-500' : 'bg-transparent'"
               @click="changeFilterGenre(genre.id)"
             >
               {{ genre.name }}
@@ -91,10 +82,70 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+import ButtonUi from '@/components/ui/ButtonUi.vue'
+import { mapGetters, useStore } from 'vuex'
+import store from '@/store'
+
+export default defineComponent({
+  name: 'FilterPage',
+  components: { ButtonUi },
+
+  setup() {
+    const store = useStore()
+    const isOpenGenre = ref(false)
+    const isOpen = ref(false)
+    const genreSelected = ref<never[]>([])
+
+    return {
+      store,
+      isOpen,
+      isOpenGenre,
+      genreSelected,
+    }
+  },
+
+  async mounted() {
+    store.dispatch('getGenresMovies')
+  },
+
+  computed: {
+    ...mapGetters({
+      genres: 'genres',
+    }),
+  },
+
+  methods: {
+    handleCollapse() {
+      this.isOpenGenre = !this.isOpenGenre
+    },
+    handleCollapseDropdown() {
+      this.isOpen = !this.isOpen
+    },
+
+    changeFilterGenre(id: number) {
+      if (this.genreSelected.length >= 0) {
+        if (this.genreSelected.some((genreId: number) => genreId === id)) {
+          const tempNewGenre = this.genreSelected
+          tempNewGenre.splice(this.genreSelected.indexOf(id), 1)
+
+          this.genreSelected = [...tempNewGenre]
+        } else {
+          this.genreSelected = [...this.genreSelected, id]
+        }
+      }
+
+      console.log('genreSelected', this.genreSelected)
+    },
+  },
+})
+</script>
+
+<!-- <script setup lang="ts">
 import ButtonUi from '@/components/ui/ButtonUi.vue'
 
-import { ChevronDownIcon } from 'lucide-vue-next'
+import { ChevronDownIcon, X } from 'lucide-vue-next'
 import { ref, onMounted, computed } from 'vue'
 import { useStore } from 'vuex'
 import { Collapse } from 'vue-collapsed'
@@ -105,7 +156,8 @@ const store = useStore()
 const genres = computed(() => store.getters.genres)
 
 let genreSelected: number[] = []
-let colorButtonFilters: string = 'bg-none'
+
+let colorButtonFilters: string = 'bg-transparent'
 
 const changeFilterGenre = (id: number) => {
   if (genreSelected.length >= 0) {
@@ -120,6 +172,8 @@ const changeFilterGenre = (id: number) => {
   }
 
   changeColorButton(id)
+  console.log('genreSelected', genreSelected)
+  console.log('colorButtonFilters', colorButtonFilters)
 }
 
 function handleCollapse() {
@@ -132,10 +186,10 @@ function handleCollapseDropdown() {
 function changeColorButton(id: number) {
   colorButtonFilters = genreSelected.some((genreId: number) => genreId === id)
     ? 'bg-slate-500'
-    : 'bg-none'
+    : 'bg-transparent'
 }
 
 onMounted(() => {
   store.dispatch('getGenresMovies')
 })
-</script>
+</script> -->

@@ -30,12 +30,11 @@ export const siteConfig: SiteConfig = {
 
 export const siteTechs: siteTechs[] = [
   {
-    name: '@tailwindcss',
-    description:
-      // 'A utility-first CSS framework packed with classes like flex, pt-4 and text-center that can be composed to build any design.',
-      'Uma estrutura CSS baseada em utilitários, repleta de classes como flex, pt-4 e text-center, que podem ser compostas para criar qualquer design.',
-    link: 'https://tailwindcss.com/',
-    image: 'https://github.com/tailwindcss.png',
+    name: '@vuex',
+    // description: 'Open-source project and a fork of Feather Icons.',
+    description: 'Responsável pelo gerenciamento de estado feito no vuejs',
+    link: 'https://github.com/vuejs/vuex',
+    image: 'https://github.com/vuejs.png',
   },
   {
     name: '@lucide-icons',
@@ -45,18 +44,19 @@ export const siteTechs: siteTechs[] = [
     image: 'https://github.com/lucide-icons.png',
   },
   {
-    name: '@vuex',
-    // description: 'Open-source project and a fork of Feather Icons.',
-    description: 'Responsável pelo gerenciamento de estado feito no vuejs',
-    link: 'https://github.com/vuejs/vuex',
-    image: 'https://github.com/vuejs.png',
-  },
-  {
     name: '@firebase',
     // description: 'Open-source project and a fork of Feather Icons.',
     description:
       'Conjunto de serviços que oferece NoSQL e hospedagem em tempo real de bancos de dados, conteúdo, autenticação social e notificações ou serviços.',
     link: 'https://firebase.google.com/',
     image: 'https://github.com/firebase.png',
+  },
+  {
+    name: '@tailwindcss',
+    description:
+      // 'A utility-first CSS framework packed with classes like flex, pt-4 and text-center that can be composed to build any design.',
+      'Uma estrutura CSS baseada em utilitários, repleta de classes como flex, pt-4 e text-center, que podem ser compostas para criar qualquer design.',
+    link: 'https://tailwindcss.com/',
+    image: 'https://github.com/tailwindcss.png',
   },
 ]
