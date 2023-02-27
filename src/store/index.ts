@@ -18,6 +18,7 @@ const store = createStore({
     user: null,
     moviesList: [] as MoviesProps[],
     genres: [] as GenreProps[],
+    genreSelected: [] as number[],
     loadingData: true,
   },
   getters: {
@@ -26,6 +27,9 @@ const store = createStore({
     },
     genres(state) {
       return state.genres
+    },
+    genreSelected(state) {
+      return state.genreSelected
     },
     loadingData(state) {
       return state.loadingData
@@ -40,6 +44,9 @@ const store = createStore({
     },
     setGenres(state, payload) {
       state.genres = payload
+    },
+    setGenreSelected(state, payload) {
+      state.genreSelected = payload
     },
   },
   actions: {
@@ -75,7 +82,14 @@ const store = createStore({
       this.state.loadingData = true
 
       await api
-        .get(`/movie/popular?${apiKey}${pageNumberUrl}`)
+        .get(`/movie/popular?${apiKey}${pageNumberUrl}`, {
+          params: {
+            with_genres:
+              this.state.genreSelected.length > 0
+                ? this.state.genreSelected.toString()
+                : null,
+          },
+        })
         .then((res) => {
           context.commit(
             'setMoviesList',

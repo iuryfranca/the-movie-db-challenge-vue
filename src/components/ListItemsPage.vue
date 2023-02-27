@@ -26,6 +26,12 @@
       :msg="'Carregar mais filmes'"
       variant="outline"
       class="mt-8 border-2"
+      @click="
+        store.dispatch('getListMovies', {
+          typeGet: 'popular',
+          numberPageApi: numberPage++,
+        })
+      "
     />
   </div>
 </template>
@@ -35,7 +41,6 @@ import { defineComponent } from 'vue'
 import CardMovie from '@/components/CardMovie.vue'
 import ButtonUi from '@/components/ui/ButtonUi.vue'
 import { mapGetters, useStore } from 'vuex'
-import store from '@/store'
 
 export default defineComponent({
   name: 'ListItemsPages',
@@ -43,7 +48,6 @@ export default defineComponent({
   data() {
     return {
       numberPage: 1,
-      typeGet: 'popular',
     }
   },
 
@@ -55,11 +59,12 @@ export default defineComponent({
     }
   },
 
-  async mounted() {
+  async created() {
     this.store.dispatch('getListMovies', {
-      typeGet: this.typeGet,
+      typeGet: 'popular',
       numberPageApi: this.numberPage,
     })
+    this.numberPage = this.numberPage + 1
   },
 
   computed: {
@@ -67,24 +72,6 @@ export default defineComponent({
       moviesList: 'moviesList',
       loadingData: 'loadingData',
     }),
-  },
-
-  methods: {
-    //   async getMovies(typeGet: string = 'popular', numberPageApi: number = 1) {
-    //     const pageNumberUrl = `&page=${numberPageApi}`
-    //     this.numberPage = numberPageApi
-    //     this.loadingData = true
-    //     api
-    //       .get(`/movie/popular?${apiKey}${pageNumberUrl}`)
-    //       .then((res) => {
-    //         this.moviesList =
-    //           typeGet === 'discover'
-    //             ? [...res.data.results]
-    //             : [...this.moviesList, ...res.data.results]
-    //       })
-    //       .catch(() => new Error('Failed to fetch data'))
-    //     this.loadingData = false
-    //   },
   },
 })
 </script>

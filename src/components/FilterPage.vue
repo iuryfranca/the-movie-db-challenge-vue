@@ -68,7 +68,7 @@
     </div>
     <div>
       <ButtonUi
-        class="w-full bg-slate-900 text-slate-50 hover:bg-slate-700"
+        class="w-full"
         :msg="'Pesquisar'"
         variant="subtle"
         @click="
@@ -83,26 +83,27 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
 import ButtonUi from '@/components/ui/ButtonUi.vue'
+import { Collapse } from 'vue-collapsed'
+import { ChevronDownIcon } from 'lucide-vue-next'
+
+import { defineComponent, ref } from 'vue'
 import { mapGetters, useStore } from 'vuex'
 import store from '@/store'
 
 export default defineComponent({
   name: 'FilterPage',
-  components: { ButtonUi },
+  components: { ButtonUi, Collapse, ChevronDownIcon },
 
   setup() {
     const store = useStore()
     const isOpenGenre = ref(false)
     const isOpen = ref(false)
-    const genreSelected = ref<never[]>([])
 
     return {
       store,
       isOpen,
       isOpenGenre,
-      genreSelected,
     }
   },
 
@@ -113,6 +114,7 @@ export default defineComponent({
   computed: {
     ...mapGetters({
       genres: 'genres',
+      genreSelected: 'genreSelected',
     }),
   },
 
@@ -130,13 +132,11 @@ export default defineComponent({
           const tempNewGenre = this.genreSelected
           tempNewGenre.splice(this.genreSelected.indexOf(id), 1)
 
-          this.genreSelected = [...tempNewGenre]
+          store.commit('setGenreSelected', [...tempNewGenre])
         } else {
-          this.genreSelected = [...this.genreSelected, id]
+          store.commit('setGenreSelected', [...this.genreSelected, id])
         }
       }
-
-      console.log('genreSelected', this.genreSelected)
     },
   },
 })
@@ -172,8 +172,6 @@ const changeFilterGenre = (id: number) => {
   }
 
   changeColorButton(id)
-  console.log('genreSelected', genreSelected)
-  console.log('colorButtonFilters', colorButtonFilters)
 }
 
 function handleCollapse() {
