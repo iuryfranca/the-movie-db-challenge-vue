@@ -21,17 +21,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
 import ListItemsPage from '@/components/ListItemsPage.vue'
 import HeaderPage from '@/components/HeaderPage.vue'
 import FilterPage from '@/components/FilterPage.vue'
+import ListItemsPageSkeleton from '@/components/skeleton/ListItemsPageSkeleton.vue'
+
+import { defineComponent } from 'vue'
+import { mapGetters, useStore } from 'vuex'
 
 export default defineComponent({
   name: 'MoviesView',
   components: { ListItemsPage, HeaderPage, FilterPage },
-  setup() {
+
+  data() {
     return {
-      name: 'iury',
+      numberPage: 1,
+    }
+  },
+
+  setup() {
+    const store = useStore()
+    return {
+      store,
     }
   },
 })

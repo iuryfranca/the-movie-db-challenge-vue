@@ -100,7 +100,9 @@ const store = createStore({
         })
         .catch(() => new Error('Failed to fetch data'))
 
-      this.state.loadingData = false
+      setTimeout(() => {
+        this.state.loadingData = false
+      }, 1000)
     },
     async getGenresMovies(context) {
       await api.get(`/genre/movie/list?${apiKey}`).then((res) => {

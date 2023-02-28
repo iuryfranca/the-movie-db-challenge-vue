@@ -1,7 +1,6 @@
 <template>
   <div v-if="loadingData">
-    <!-- <ListItemsPageSkeleton /> -->
-    Carregando...
+    <ListItemsPageSkeleton />
   </div>
   <div v-else class="flex w-full flex-row flex-wrap justify-between gap-6">
     <!-- <a
@@ -26,12 +25,7 @@
       :msg="'Carregar mais filmes'"
       variant="outline"
       class="mt-8 border-2"
-      @click="
-        store.dispatch('getListMovies', {
-          typeGet: 'popular',
-          numberPageApi: numberPage++,
-        })
-      "
+      @click="handleNewPageMovies()"
     />
   </div>
 </template>
@@ -40,14 +34,16 @@
 import { defineComponent } from 'vue'
 import CardMovie from '@/components/CardMovie.vue'
 import ButtonUi from '@/components/ui/ButtonUi.vue'
+import ListItemsPageSkeleton from './skeleton/ListItemsPageSkeleton.vue'
+
 import { mapGetters, useStore } from 'vuex'
 
 export default defineComponent({
   name: 'ListItemsPages',
-  components: { CardMovie, ButtonUi },
+  components: { CardMovie, ButtonUi, ListItemsPageSkeleton },
   data() {
     return {
-      numberPage: 1,
+      numberPage: 2,
     }
   },
 
@@ -62,9 +58,8 @@ export default defineComponent({
   async created() {
     this.store.dispatch('getListMovies', {
       typeGet: 'popular',
-      numberPageApi: this.numberPage,
+      numberPageApi: 1,
     })
-    this.numberPage = this.numberPage + 1
   },
 
   computed: {
@@ -72,6 +67,17 @@ export default defineComponent({
       moviesList: 'moviesList',
       loadingData: 'loadingData',
     }),
+  },
+
+  methods: {
+    handleNewPageMovies() {
+      this.store.dispatch('getListMovies', {
+        typeGet: 'popular',
+        numberPageApi: this.numberPage,
+      })
+
+      this.numberPage = this.numberPage + 1
+    },
   },
 })
 </script>
