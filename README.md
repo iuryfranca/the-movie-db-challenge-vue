@@ -13,7 +13,7 @@
 
 ## :dart: About
 
-This is a copy of this other project: [https://github.com/iuryfranca/the-movie-db-challenge-next-13](https://github.com/iuryfranca/the-movie-db-challenge-vue/), I challenged myself to rebuild it in another tech: Vuejs. The project itself consists of (almost) recreating the website www.themoviedb.org.
+This is a copy of this other project: [https://github.com/iuryfranca/the-movie-db-challenge-vue3.git] (https://github.com/iuryfranca/the-movie-db-challenge-vue3/), I challenged myself to rebuild it in another tech: Vuejs. The project itself consists of (almost) recreating the website www.themoviedb.org.
 
 ## :rocket: Techs
 
