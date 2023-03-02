@@ -85,18 +85,18 @@
                 <ul
                   class="z-50 overflow-hidden rounded-md p-1 text-slate-700 animate-in data-[side=bottom]:slide-in-from-top-2 data-[side=top]:slide-in-from-bottom-2 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-400"
                 >
-                  <button
+                  <RouterLink
                     class="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm font-medium outline-none hover:bg-slate-100 focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
-                    @click="router.push('/login')"
+                    to="/login"
                   >
                     Login
-                  </button>
-                  <button
+                  </RouterLink>
+                  <RouterLink
                     class="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm font-medium outline-none hover:bg-slate-100 focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
-                    @click="router.push('/register')"
+                    to="/register"
                   >
                     Registro
-                  </button>
+                  </RouterLink>
                   <button
                     class="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm font-medium outline-none hover:bg-slate-100 focus:bg-slate-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:hover:bg-slate-700 dark:focus:bg-slate-700"
                     @click="handleLogout()"
